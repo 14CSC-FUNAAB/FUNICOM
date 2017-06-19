@@ -1,4 +1,4 @@
-<?php include("functions/function.php");gen_header(); ?>
+<?php include("functions/function.php");gen_header(FF); ?>
 </div>
 <div class="about_banner">
 	<div class="container">
@@ -19,147 +19,48 @@
 	</div>
 	<div class="col-md-9 column-15">
 	   <h6>Forum</h6>
-	   <div class="forum_box1">
-	   	 <span class="head_2">
-            <a href="forum_single.html">TITLE 1</a>
+<?php
+			$get_threads = "SELECT * FROM `thread` order by dt desc";
+			$run_threads = mysqli_query ($con,$get_threads);
+
+	while ($row_threads = mysqli_fetch_array ($run_threads)){
+		$thread_id = $row_threads['id'];
+		$thread_title = $row_threads['title'];
+		$thread_body = $row_threads['body'];
+		$thread_dt = $row_threads['dt'];
+		$thread_creator = $row_threads['creator'];
+		$thread_avatar = $row_threads['avatar'];
+	
+		echo "<div class='forum_box1'>
+	   	 <span class='head_2'>
+            <a href='thread.php'>$thread_title</a>
          </span>
-	   	 <h3>Day, dd/mm/yyyy-hh:mm</h3>
-	   	 <div class="col-sm-3 forum_box1-left">
-	   	 	<h4><a href="classified_detail.html">User</a></h4>
-	   	 	<a href="classified_detail.html"><img src="images/c9.jpg" class="img-responsive" alt=""/></a>
+	   	 <h3> $thread_dt </h3>
+	   	 <div class='col-sm-3 forum_box1-left'>
+	   	 	<h4><a href='profile.php'>$thread_creator</a></h4>
 	   	 	<p>0 replies</p>
 	   	 </div>
-	   	 <div class="col-sm-9 forum_box1-right">
-	   	 	<p>"New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. "</p>
-            <div class="post-element clearfix">                         
- 	  	        <div class="post__1">
-    	          <span class="post__1-item post__1-date"><a href="#">Add new Comment</a></span>
-    	          <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-heart-o"></i></a></span><span>1</span>
+	   	 <div class='col-sm-9 forum_box1-right'>
+	   	 	<p>'$thread_body'</p>
+            <div class='post-element clearfix'>                         
+ 	  	        <div class='post__1'>
+    	          <span class='post__1-item'><span class='link_2'><a  title='like me' class='like_button'>
+    		          <i class='fa fa-heart-o'></i></a></span><span></span>
     		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-comment-o"></i></a></span><span>12</span>
+    		       <span class='post__1-item'><span class='link_2'><a  title='like me' class='like_button'>
+    		          <i class='fa fa-comment-o'></i></a></span><span></span>
     		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-eye"></i></a></span><span>10</span>
+    		       <span class='post__1-item'><span class='link_2'><a  title='like me' class='like_button'>
+    		          <i class='fa fa-eye'></i></a></span><span></span>
     		      </span>
     		    </div>                     
             </div>
 	   	 </div>
-	   	 <div class="clearfix"> </div>
-	   </div>
-	   <div class="forum_box1">
-	   	 <span class="head_2">
-            <a href="forum_single.html">TITLE 2</a>
-         </span>
-	   	 <h3>Day, dd/mm/yyyy-hh:mm</h3>
-	   	 <div class="col-sm-3 forum_box1-left">
-	   	 	<h4><a href="classified_detail.html">User</a></h4>
-	   	 	<a href="classified_detail.html"><img src="images/c9.jpg" class="img-responsive" alt=""/></a>
-	   	 	<p>0 replies</p>
-	   	 </div>
-	   	 <div class="col-sm-9 forum_box1-right">
-	   	 	<p>"New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. "</p>
-            <div class="post-element clearfix">                         
- 	  	        <div class="post__1">
-    	          <span class="post__1-item post__1-date"><a href="#">Add new Comment</a></span>
-    	          <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-heart-o"></i></a></span><span>1</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-comment-o"></i></a></span><span>12</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-eye"></i></a></span><span>10</span>
-    		      </span>
-    		    </div>                     
-            </div>
-	   	 </div>
-	   	 <div class="clearfix"> </div>
-	   <div class="forum_box1">
-	   	 <span class="head_2">
-            <a href="forum_single.html">TITLE 3</a>
-         </span>
-	   	 <h3>Day, dd/mm/yyyy-hh:mm</h3>
-	   	 <div class="col-sm-3 forum_box1-left">
-	   	 	<h4><a href="classified_detail.html">User</a></h4>
-	   	 	<a href="classified_detail.html"><img src="images/c9.jpg" class="img-responsive" alt=""/></a>
-	   	 	<p>0 replies</p>
-	   	 </div>
-	   	 <div class="col-sm-9 forum_box1-right">
-	   	 	<p>"New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. "</p>
-            <div class="post-element clearfix">                         
- 	  	        <div class="post__1">
-    	          <span class="post__1-item post__1-date"><a href="#">Add new Comment</a></span>
-    	          <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-heart-o"></i></a></span><span>1</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-comment-o"></i></a></span><span>12</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-eye"></i></a></span><span>10</span>
-    		      </span>
-    		    </div>                     
-            </div>
-	   	 </div>
-	   	 <div class="clearfix"> </div>
-	   <div class="forum_box1">
-	   	 <span class="head_2">
-            <a href="forum_single.html">TITLE 4</a>
-         </span>
-	   	 <h3>Day, dd/mm/yyyy-hh:mm</h3>
-	   	 <div class="col-sm-3 forum_box1-left">
-	   	 	<h4><a href="classified_detail.html">User</a></h4>
-	   	 	<a href="classified_detail.html"><img src="images/c9.jpg" class="img-responsive" alt=""/></a>
-	   	 	<p>0 replies</p>
-	   	 </div>
-	   	 <div class="col-sm-9 forum_box1-right">
-	   	 	<p>"New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. "</p>
-            <div class="post-element clearfix">                         
- 	  	        <div class="post__1">
-    	          <span class="post__1-item post__1-date"><a href="#">Add new Comment</a></span>
-    	          <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-heart-o"></i></a></span><span>1</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-comment-o"></i></a></span><span>12</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-eye"></i></a></span><span>10</span>
-    		      </span>
-    		    </div>                     
-            </div>
-	   	 </div>
-	   	 <div class="clearfix"> </div>
-	   <div class="forum_box1">
-	   	 <span class="head_2">
-            <a href="forum_single.html">TITLE 5</a>
-         </span>
-	   	 <h3>Day, dd/mm/yyyy-hh:mm</h3>
-	   	 <div class="col-sm-3 forum_box1-left">
-	   	 	<h4><a href="classified_detail.html">User</a></h4>
-	   	 	<a href="classified_detail.html"><img src="images/c9.jpg" class="img-responsive" alt=""/></a>
-	   	 	<p>0 replies</p>
-	   	 </div>
-	   	 <div class="col-sm-9 forum_box1-right">
-	   	 	<p>"New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. New thread created. Posted thread. "</p>
-            <div class="post-element clearfix">                         
- 	  	        <div class="post__1">
-    	          <span class="post__1-item post__1-date"><a href="#">Add new Comment</a></span>
-    	          <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-heart-o"></i></a></span><span>1</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-comment-o"></i></a></span><span>12</span>
-    		      </span>
-    		       <span class="post__1-item"><span class="link_2"><a  title="like me" class="like_button">
-    		          <i class="fa fa-eye"></i></a></span><span>10</span>
-    		      </span>
-    		    </div>                     
-            </div>
-	   	 </div>
-	   	 <div class="clearfix"> </div>
+	   	 <div class='clearfix'> </div>
+	   </div>";
+	}
+?>
+	  
 
 	</div>		
     <div class="clearfix"> </div>
